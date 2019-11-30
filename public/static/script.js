@@ -14,6 +14,8 @@ function getRandomInt(max) {
 async function changeImg(number) {
     iconsContainer.innerHTML = "";
     image.src = loaderLink;
+    titleContainer.innerHTML = "Loading...";
+    numeroContainer.innerHTML = "";
     const comic = await fetch(`http://localhost:8000/${number}`).then(res =>
         res.json()
     );
