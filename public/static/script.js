@@ -40,6 +40,8 @@ async function changeImg(number) {
 
     const charOfLength11 = check11CharWords(comic);
 
+    console.log(charOfLength11);
+
     if (charOfLength11 === []) {
         document.getElementById(
             "rhyme"
@@ -48,9 +50,16 @@ async function changeImg(number) {
 
     if (charOfLength11 !== "") {
         getRhymingWords(charOfLength11).then(rhymingWords => {
-            document.getElementById(
-                "rhyme"
-            ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> It ryhmes with ${rhymingWords}`;
+            console.log(rhymingWords);
+            if (rhymingWords.length === 0) {
+                document.getElementById(
+                    "rhyme"
+                ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> But unfortunately, no word rhymes with it...`;
+            } else {
+                document.getElementById(
+                    "rhyme"
+                ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> It ryhmes with ${rhymingWords}`;
+            }
         });
     }
 
@@ -158,7 +167,6 @@ async function getRhymingWords(word) {
 changeImg(currentComicNumber);
 
 document.addEventListener("keydown", e => {
-    console.log(e);
     if (e.keyCode === 37) {
         previous();
     } else if (e.keyCode === 39) {
