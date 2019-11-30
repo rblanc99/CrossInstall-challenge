@@ -38,9 +38,14 @@ async function changeImg(number) {
 
     const charOfLength11 = check11CharWords(comic);
 
+    if (charOfLength11 === []) {
+        document.getElementById(
+            "rhyme"
+        ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> But unfortunately, no words rhymes with it...`;
+    }
+
     if (charOfLength11 !== "") {
         getRhymingWords(charOfLength11).then(rhymingWords => {
-            console.log(rhymingWords);
             document.getElementById(
                 "rhyme"
             ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> It ryhmes with ${rhymingWords}`;
