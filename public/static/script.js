@@ -6,6 +6,7 @@ let currentComicNumber = getRandomInt(2235);
 let iconsContainer = document.getElementById("icons");
 let titleContainer = document.getElementById("title");
 let numeroContainer = document.getElementById("numero");
+let rhymeContainer = document.getElementById("rhyme");
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -16,6 +17,8 @@ async function changeImg(number) {
     image.src = loaderLink;
     titleContainer.innerHTML = "Loading...";
     numeroContainer.innerHTML = "";
+    rhymeContainer.innrerHTML = "";
+
     const comic = await fetch(`http://localhost:8000/${number}`).then(res =>
         res.json()
     );
@@ -42,23 +45,13 @@ async function changeImg(number) {
 
     console.log(charOfLength11);
 
-    if (charOfLength11 === []) {
-        document.getElementById(
-            "rhyme"
-        ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> But unfortunately, no words rhymes with it...`;
-    }
-
     if (charOfLength11 !== "") {
         getRhymingWords(charOfLength11).then(rhymingWords => {
             console.log(rhymingWords);
             if (rhymingWords.length === 0) {
-                document.getElementById(
-                    "rhyme"
-                ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> But unfortunately, no word rhymes with it...`;
+                rhymeContainer.innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> But unfortunately, no word rhymes with it...`;
             } else {
-                document.getElementById(
-                    "rhyme"
-                ).innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> It ryhmes with ${rhymingWords}`;
+                rhymeContainer.innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> It ryhmes with ${rhymingWords}`;
             }
         });
     }
