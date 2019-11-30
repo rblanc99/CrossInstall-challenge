@@ -80,6 +80,7 @@ function checkForStar(comic) {
         if (
             typeof comic[key] === "string" &&
             comic[key]
+                .replace(/[^A-Za-z ]/g, "")
                 .toLowerCase()
                 .split(" ")
                 .includes("star")
@@ -94,7 +95,10 @@ function checkForAnimals(comic) {
     let count = 0;
     for (key in comic) {
         if (typeof comic[key] === "string") {
-            const wordsList = comic[key].toLowerCase().split(" ");
+            const wordsList = comic[key]
+                .replace(/[^A-Za-z ]/g, "")
+                .toLowerCase()
+                .split(" ");
             for (let i = 0; i < wordsList.length; i++) {
                 if (wordsList[i] === "cat") {
                     count++;
