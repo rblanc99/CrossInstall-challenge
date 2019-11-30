@@ -28,16 +28,12 @@ async function changeImg(number) {
     titleContainer.innerText = comic.safe_title;
     numeroContainer.innerHTML = ` - n° ${comic.num}`;
 
-    console.log(comic);
-
     if (checkForStar(comic)) {
         iconsContainer.innerHTML += "<i class='material-icons'> star </i>";
     }
 
     const animalsNumber = checkForAnimals(comic);
 
-    console.log(animalsNumber);
-    console.log(iconsContainer.innerHTML);
     if (animalsNumber > 0) {
         for (i = 0; i < animalsNumber; i++) {
             iconsContainer.innerHTML +=
@@ -49,7 +45,6 @@ async function changeImg(number) {
 
     if (charOfLength11 !== "") {
         getRhymingWords(charOfLength11).then(rhymingWords => {
-            console.log(rhymingWords);
             if (rhymingWords.length === 0) {
                 rhymeContainer.innerHTML = `We found a 11 characters word ! It is : <h5>${charOfLength11}</h5> <br/> But unfortunately, no word rhymes with it...`;
             } else {
