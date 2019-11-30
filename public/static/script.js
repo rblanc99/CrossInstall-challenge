@@ -154,6 +154,15 @@ async function getRhymingWords(word) {
 
 changeImg(currentComicNumber);
 
+document.addEventListener("keydown", e => {
+    console.log(e);
+    if (e.keyCode === 37) {
+        previous();
+    } else if (e.keyCode === 39) {
+        next();
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     var elems = document.querySelectorAll(".materialboxed");
     var instances = M.Materialbox.init(elems, {});
