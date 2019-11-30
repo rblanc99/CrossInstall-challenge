@@ -69,6 +69,7 @@ function next() {
 
 function goTo() {
     const newNumber = parseInt(document.getElementById("newNumber").value);
+    document.getElementById("newNumber").value = "";
     currentComicNumber = changeImg(newNumber);
 }
 
