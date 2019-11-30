@@ -1,11 +1,23 @@
 # CrossInstall Home Challenge - Romain Blanc
 
-Make sure to have Node installed.
-Install the packages with `npm install`
-To launch the app, get in the root folder and do `npm start`
-The open your browser on `localhost:8000`
+This is an small webapp to read XKCD comics using XKCD API, with a few other aditionnal constraints.
+This was done in 3 hours as a home project in the scope of my application to CrossInstall.
+
+## configuration
+
+Make sure to have [Node](https://nodejs.org/en/) installed.
+
+Then go to the root of the application folder and :
+
+-   Install the packages with `npm install`
+-   Launch the app with `npm start`
+-   Open your browser on `localhost:8000`
+
+## Hypothesis
 
 I chose to only pick the first word of 11 letters, given that there can possibly be many of those and i don't want the call to Datamuse API to be too long.
+
+## Issues
 
 There is one big issue that i didn't have the time to tackle : the text in the transcript from the API is very dirty, so words of 11 characters can be something like something]]] and the Datamuse doesn't know that.
 It is quite simple to fix, I juste have to eliminate the non-alphabetic characters but I didn't have the time.
