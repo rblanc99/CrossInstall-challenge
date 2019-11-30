@@ -5,6 +5,7 @@ const loaderLink =
 let currentComicNumber = getRandomInt(2235);
 let iconsContainer = document.getElementById("icons");
 let titleContainer = document.getElementById("title");
+let numeroContainer = document.getElementById("numero");
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -20,6 +21,7 @@ async function changeImg(number) {
     image.src = link;
 
     titleContainer.innerText = comic.safe_title;
+    numeroContainer.innerHTML = ` - n° ${comic.num}`;
 
     if (checkForStar(comic)) {
         iconsContainer.innerHTML += "<i class='material-icons'> star </i>";
@@ -100,7 +102,7 @@ function checkForAnimals(comic) {
 }
 
 function check11CharWords(comic) {
-    const transcript = comic.transcript;
+    const transcript = comic.transcript.replace(/[^A-Za-z ]/g, "");
     const wordsList = transcript.toLowerCase().split(" ");
     for (let i = 0; i < wordsList.length; i++) {
         if (wordsList[i].length === 11) {
