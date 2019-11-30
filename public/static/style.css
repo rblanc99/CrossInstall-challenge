@@ -1,0 +1,14 @@
+#displayed_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+#title {
+    text-align: center;
+}
+
+#icons {
+    text-align: right;
+}

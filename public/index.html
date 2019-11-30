@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>XKCD comic web app</title>
+
+        <link href="style.css" rel="stylesheet" />
+
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </head>
+    <body>
+        <div class="row"></div>
+        <div class="row">
+            <button class="btn col s1 offset-s1 lightgrey" onclick="previous()">
+                Précédent
+            </button>
+            <input
+                id="newNumber"
+                type="text"
+                placeholder="Go to page..."
+                onkeypress="if (event.keyCode===13) goTo()"
+                class="col s1 offset-s3"
+            />
+            <button class="col s1 btn" onclick="goTo()">
+                Go <i class="material-icons">send</i>
+            </button>
+            <button class="btn col s1 offset-s3" onclick="next()">
+                Suivant
+            </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row"></div>
+
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div id="title" class="col s2 offset-s5"></div>
+                    <div id="icons" class="col s1 offset-s4"></div>
+                </div>
+
+                <img
+                    src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/source.gif"
+                    id="displayed_img"
+                    class="materialboxed"
+                    width="650"
+                />
+            </div>
+        </div>
+
+        <div id="rhyme" class="row"></div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
