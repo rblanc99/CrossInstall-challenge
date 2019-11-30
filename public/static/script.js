@@ -28,22 +28,24 @@ async function changeImg(number) {
     titleContainer.innerText = comic.safe_title;
     numeroContainer.innerHTML = ` - n° ${comic.num}`;
 
+    console.log(comic);
+
     if (checkForStar(comic)) {
         iconsContainer.innerHTML += "<i class='material-icons'> star </i>";
     }
 
     const animalsNumber = checkForAnimals(comic);
 
+    console.log(animalsNumber);
+    console.log(iconsContainer.innerHTML);
     if (animalsNumber > 0) {
         for (i = 0; i < animalsNumber; i++) {
-            iconsContainer.innterHTML +=
+            iconsContainer.innerHTML +=
                 "<i class='material-icons'> favorite </i>";
         }
     }
 
     const charOfLength11 = check11CharWords(comic);
-
-    console.log(charOfLength11);
 
     if (charOfLength11 !== "") {
         getRhymingWords(charOfLength11).then(rhymingWords => {
@@ -141,10 +143,9 @@ async function searchStar() {
 
 async function searchAnimals() {
     let comic = {};
-    let number = 26;
+    let number = 230;
     while (checkForAnimals(comic) === 0) {
         number += 1;
-        console.log(number);
         comic = await fetch(`http://localhost:8000/${number}`).then(res =>
             res.json()
         );
